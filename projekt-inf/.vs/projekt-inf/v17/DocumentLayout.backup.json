@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Informatyka II\\Projekt-INF\\projekt-inf\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2885FE69-C810-480B-AC78-9F5814857F67}|projekt-inf\\projekt-inf.vcxproj|D:\\Informatyka II\\Projekt-INF\\projekt-inf\\projekt-inf\\projekt-inf.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2885FE69-C810-480B-AC78-9F5814857F67}|projekt-inf\\projekt-inf.vcxproj|solutionrelative:projekt-inf\\projekt-inf.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "projekt-inf.cpp",
+              "DocumentMoniker": "D:\\Informatyka II\\Projekt-INF\\projekt-inf\\projekt-inf\\projekt-inf.cpp",
+              "RelativeDocumentMoniker": "projekt-inf\\projekt-inf.cpp",
+              "ToolTip": "D:\\Informatyka II\\Projekt-INF\\projekt-inf\\projekt-inf\\projekt-inf.cpp*",
+              "RelativeToolTip": "projekt-inf\\projekt-inf.cpp*",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-17T20:34:04.449Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
