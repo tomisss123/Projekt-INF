@@ -47,3 +47,45 @@ public:
     }
 };
 
+class Ball {
+public:
+    sf::CircleShape shape;
+    sf::Vector2f velocity;
+
+    Ball(float x, float y) {
+        shape.setRadius(ballRadius);
+        shape.setPosition(x, y);
+        shape.setFillColor(sf::Color::Red);
+        shape.setOrigin(ballRadius, ballRadius);
+        velocity = { ballSpeed, -ballSpeed };
+    }
+
+    void move(float deltaTime) {
+        shape.move(velocity * deltaTime);
+    }
+
+    void checkCollisionWithWalls(float windowWidth, float windowHeight) {
+        if (shape.getPosition().x - ballRadius <= 0 || shape.getPosition().x + ballRadius >= windowWidth) {
+            velocity.x = -velocity.x;
+        }
+        if (shape.getPosition().y - ballRadius <= 0) {
+            velocity.y = -velocity.y;
+        }
+    }
+};
+
+
+class Block {
+public:
+    sf::RectangleShape shape;
+    bool isDestroyed = false;
+
+    Block(float x, float y) {
+        shape.setSize({ blockWidth, blockHeight });
+        shape.setPosition(x, y);
+        shape.setFillColor(sf::Color::Green);
+        shape.setOrigin(blockWidth / 2.f, blockHeight / 2.f);
+    }
+};
+
+
