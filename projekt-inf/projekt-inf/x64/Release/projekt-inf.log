@@ -1,5 +1,115 @@
 ﻿  projekt-inf.cpp
-D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(104,34): error C2039: „getFramerateLimit”: nie jest składową elementu „sf::RenderWindow”
-      D:\Informatyka II\SFML-2.6.2-windows-vc17-64-bit\SFML-2.6.2\include\SFML\Graphics\RenderWindow.hpp(44,25):
-      zobacz deklarację „sf::RenderWindow”
-  
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,77): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,77): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,77): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,77): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,77): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,77): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,77): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,77): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,77): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,65): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,65): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,65): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,65): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,65): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,65): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,65): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,65): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(115,65): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,77): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,77): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,77): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,77): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,77): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,77): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,77): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,77): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,77): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,65): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,65): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,65): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,65): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,65): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,65): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,65): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,65): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(118,65): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,93): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,93): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,93): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,93): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,93): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,93): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,93): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,93): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,93): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,81): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,81): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,81): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,81): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,81): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,81): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,81): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,81): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(134,81): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,78): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,78): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,78): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,78): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,78): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,78): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,78): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,78): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,78): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,66): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,66): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,66): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,66): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,66): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,66): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,66): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,66): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(193,66): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,77): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,77): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,77): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,77): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,77): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,77): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,77): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,77): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,77): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,65): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,65): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,65): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,65): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,65): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,65): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,65): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,65): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(196,65): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,77): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,77): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,77): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,77): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,77): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,77): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,77): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,77): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,77): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,65): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,65): warning C4244:         with
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,65): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,65): warning C4244:             T=int
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,65): warning C4244:         ]
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,65): warning C4244:         and
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,65): warning C4244:         [
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,65): warning C4244:             T=float
+D:\Informatyka II\Projekt-INF\projekt-inf\projekt-inf\projekt-inf.cpp(200,65): warning C4244:         ]
+  Trwa generowanie kodu
+  124 of 307 functions (40.4%) were compiled, the rest were copied from previous compilation.
+    87 functions were new in current compilation
+    19 functions had inline decision re-evaluated but remain unchanged
+  Zakończono generowanie kodu
+  projekt-inf.vcxproj -> D:\Informatyka II\Projekt-INF\projekt-inf\x64\Release\projekt-inf.exe
