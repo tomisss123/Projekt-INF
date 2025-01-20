@@ -1,8 +1,11 @@
-﻿
-#include <SFML/Graphics.hpp>
+﻿#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <algorithm>
 
 const int windowWidth = 800;
 const int windowHeight = 600;
@@ -18,6 +21,11 @@ const float blockWidth = 60.f;
 const float blockHeight = 20.f;
 const int blocksPerRow = 10;
 const int numRows = 5;
+
+struct ScoreEntry {
+    std::string name;
+    int score;
+};
 
 class Paddle {
 public:
@@ -86,23 +94,75 @@ bool isColliding(const sf::Shape& a, const sf::Shape& b) {
     return a.getGlobalBounds().intersects(b.getGlobalBounds());
 }
 
-void showMenu(sf::RenderWindow& window);
-void showEndScreen(sf::RenderWindow& window, int score, bool isWin);
+void showMenu(sf::RenderWindow& window, std::string& playerName, std::vector<ScoreEntry>& highScores);
+void showEndScreen(sf::RenderWindow& window, int score, bool isWin, std::string& playerName, std::vector<ScoreEntry>& highScores);
+void saveHighScores(const std::vector<ScoreEntry>& highScores);
+void loadHighScores(std::vector<ScoreEntry>& highScores);
 
-void showMenu(sf::RenderWindow& window) {
+void saveHighScores(const std::vector<ScoreEntry>& highScores) {
+    std::ofstream file("highscores.txt");
+    if (!file.is_open()) {
+        std::cerr << "Could not open file for saving high scores!" << std::endl;
+        return;
+    }
+
+    for (const auto& entry : highScores) {
+        file << entry.name << " " << entry.score << "\n";
+    }
+}
+
+void loadHighScores(std::vector<ScoreEntry>& highScores) {
+    std::ifstream file("highscores.txt");
+    if (!file.is_open()) {
+        std::cerr << "Could not open file for loading high scores!" << std::endl;
+        return;
+    }
+
+    highScores.clear();
+    ScoreEntry entry;
+    while (file >> entry.name >> entry.score) {
+        highScores.push_back(entry);
+    }
+
+    std::sort(highScores.begin(), highScores.end(), [](const ScoreEntry& a, const ScoreEntry& b) {
+        return a.score > b.score;
+        });
+
+    if (highScores.size() > 5) {
+        highScores.resize(5);
+    }
+}
+
+void showMenu(sf::RenderWindow& window, std::string& playerName, std::vector<ScoreEntry>& highScores) {
     sf::Font font;
     if (!font.loadFromFile("arial.ttf")) {
         std::cerr << "Could not load font!" << std::endl;
         return;
     }
 
+    sf::Text titleText("ARKANOID", font, 40);
+    titleText.setPosition(windowWidth / 2.f - 100, 50);
+    titleText.setFillColor(sf::Color::White);
+
     sf::Text playText("GRAJ", font, 30);
-    playText.setPosition(windowWidth / 2.f - 50, windowHeight / 2.f - 50);
+    playText.setPosition(windowWidth / 2.f - 50, 150);
     playText.setFillColor(sf::Color::White);
 
-    sf::Text helpText("POMOC", font, 30);
-    helpText.setPosition(windowWidth / 2.f - 50, windowHeight / 2.f);
-    helpText.setFillColor(sf::Color::White);
+    sf::Text highScoresText("NAJLEPSZE WYNIKI", font, 30);
+    highScoresText.setPosition(windowWidth / 2.f - 150, 200);
+    highScoresText.setFillColor(sf::Color::White);
+
+    sf::Text exitText("WYJSCIE", font, 30);
+    exitText.setPosition(windowWidth / 2.f - 50, 250);
+    exitText.setFillColor(sf::Color::White);
+
+    sf::Text inputPrompt("Podaj swoj nick: ", font, 20);
+    inputPrompt.setPosition(50, windowHeight - 100);
+    inputPrompt.setFillColor(sf::Color::White);
+
+    sf::Text playerInput(playerName, font, 20);
+    playerInput.setPosition(250, windowHeight - 100);
+    playerInput.setFillColor(sf::Color::White);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -115,10 +175,10 @@ void showMenu(sf::RenderWindow& window) {
                 if (playText.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                     return;
                 }
-                if (helpText.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                    sf::Text helpMessage("Przykładowy tekst", font, 20);
-                    helpMessage.setPosition(50, 50);
-                    helpMessage.setFillColor(sf::Color::White);
+                if (highScoresText.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    sf::Text scoresDisplay("Najlepsze wyniki:", font, 30);
+                    scoresDisplay.setPosition(50, 50);
+                    scoresDisplay.setFillColor(sf::Color::White);
 
                     sf::Text backText("POWRÓT", font, 30);
                     backText.setPosition(windowWidth / 2.f - 50, windowHeight - 100);
@@ -138,22 +198,46 @@ void showMenu(sf::RenderWindow& window) {
                         }
 
                         window.clear();
-                        window.draw(helpMessage);
+                        window.draw(scoresDisplay);
+
+                        for (size_t i = 0; i < highScores.size(); ++i) {
+                            sf::Text scoreText(std::to_string(i + 1) + ". " + highScores[i].name + ": " + std::to_string(highScores[i].score), font, 20);
+                            scoreText.setPosition(50, 100 + i * 30);
+                            scoreText.setFillColor(sf::Color::White);
+                            window.draw(scoreText);
+                        }
+
                         window.draw(backText);
                         window.display();
                     }
                 }
+                if (exitText.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    window.close();
+                }
+            }
+            if (event.type == sf::Event::TextEntered) {
+                if (event.text.unicode == 8 && !playerName.empty()) {
+                    playerName.pop_back();
+                }
+                else if (event.text.unicode < 128 && playerName.size() < 15) {
+                    playerName += static_cast<char>(event.text.unicode);
+                }
+                playerInput.setString(playerName);
             }
         }
 
         window.clear();
+        window.draw(titleText);
         window.draw(playText);
-        window.draw(helpText);
+        window.draw(highScoresText);
+        window.draw(exitText);
+        window.draw(inputPrompt);
+        window.draw(playerInput);
         window.display();
     }
 }
 
-void showEndScreen(sf::RenderWindow& window, int score, bool isWin) {
+void showEndScreen(sf::RenderWindow& window, int score, bool isWin, std::string& playerName, std::vector<ScoreEntry>& highScores) {
     sf::Font font;
     if (!font.loadFromFile("arial.ttf")) {
         std::cerr << "Could not load font!" << std::endl;
@@ -182,6 +266,16 @@ void showEndScreen(sf::RenderWindow& window, int score, bool isWin) {
     exitText.setPosition(windowWidth / 2.f - 100, windowHeight / 2.f + 100);
     exitText.setFillColor(sf::Color::White);
 
+    highScores.push_back({ playerName, score });
+    std::sort(highScores.begin(), highScores.end(), [](const ScoreEntry& a, const ScoreEntry& b) {
+        return a.score > b.score;
+        });
+    if (highScores.size() > 5) {
+        highScores.resize(5);
+    }
+
+    saveHighScores(highScores);
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -194,7 +288,7 @@ void showEndScreen(sf::RenderWindow& window, int score, bool isWin) {
                     return;
                 }
                 if (menuText.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                    showMenu(window);
+                    showMenu(window, playerName, highScores);
                     return;
                 }
                 if (exitText.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
@@ -217,7 +311,11 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Arkanoid");
     window.setFramerateLimit(60);
 
-    showMenu(window);
+    std::string playerName;
+    std::vector<ScoreEntry> highScores;
+    loadHighScores(highScores);
+
+    showMenu(window, playerName, highScores);
 
     sf::Texture blockTexture;
     if (!blockTexture.loadFromFile("block_texture.png")) {
@@ -226,7 +324,6 @@ int main() {
     }
 
     Paddle paddle(windowWidth / 2.f, windowHeight - 50.f);
-
     Ball ball(windowWidth / 2.f, windowHeight / 2.f);
 
     std::vector<Block> blocks;
@@ -255,58 +352,84 @@ int main() {
     scoreText.setPosition(windowWidth - 150, 10);
 
     sf::Clock clock;
+    bool isPaused = false;
 
     while (window.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
+        while (window.pollEvent (event)) {
+            if (event.type == sf::Event::Closed) {
                 window.close();
+            }
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::P) {
+                    isPaused = !isPaused; // Pauza po naciśnięciu klawisza 'P'
+                }
+            }
+        }
+
+        if (isPaused) {
+            sf::Text pauseText("PAUZA - Nacisnij P aby kontynuowac", font, 20);
+            pauseText.setPosition(windowWidth / 2.f - 200, windowHeight / 2.f);
+            pauseText.setFillColor(sf::Color::White);
+            window.clear();
+            window.draw(pauseText);
+            window.display();
+            continue;
         }
 
         float deltaTime = clock.restart().asSeconds();
 
+        // Poruszanie paddle
         paddle.move(deltaTime, windowWidth);
 
+        // Ruch piłki
         ball.move(deltaTime);
+
+        // Kolizje piłki z ścianami
         ball.checkCollisionWithWalls(windowWidth, windowHeight);
 
+        // Kolizja piłki z paddle
         if (isColliding(ball.shape, paddle.shape)) {
-            ball.velocity.y = -ballSpeed;
+            ball.velocity.y = -std::abs(ball.velocity.y);
         }
 
+        // Kolizje piłki z blokami
         for (auto& block : blocks) {
             if (!block.isDestroyed && isColliding(ball.shape, block.shape)) {
-                ball.velocity.y = -ball.velocity.y;
                 block.isDestroyed = true;
+                ball.velocity.y = -ball.velocity.y;
                 score += 10;
             }
         }
 
-        blocks.erase(std::remove_if(blocks.begin(), blocks.end(), [](const Block& block) {
-            return block.isDestroyed;
-            }), blocks.end());
+        // Usuwanie zniszczonych bloków
+        blocks.erase(std::remove_if(blocks.begin(), blocks.end(),
+            [](const Block& block) { return block.isDestroyed; }),
+            blocks.end());
 
+        // Sprawdzenie warunków wygranej/przegranej
         if (ball.shape.getPosition().y - ballRadius > windowHeight) {
-            showEndScreen(window, score, false);
-            return 0;
+            showEndScreen(window, score, false, playerName, highScores);
+            return 0; // Zakończenie gry po przegranej
         }
 
+        if (blocks.empty()) {
+            showEndScreen(window, score, true, playerName, highScores);
+            return 0; // Zakończenie gry po wygranej
+        }
+
+        // Wyświetlanie wyniku
+        scoreText.setString("Wynik: " + std::to_string(score));
+
+        // Rysowanie
         window.clear();
         window.draw(paddle.shape);
         window.draw(ball.shape);
         for (const auto& block : blocks) {
             window.draw(block.shape);
         }
-
-        scoreText.setString("Punkty: " + std::to_string(score));
         window.draw(scoreText);
-
         window.display();
-
-        if (blocks.empty()) {
-            showEndScreen(window, score, true);
-            return 0;
-        }
     }
 
     return 0;
